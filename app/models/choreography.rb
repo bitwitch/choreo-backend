@@ -1,0 +1,2 @@
+class Choreography < ApplicationRecord
+end
