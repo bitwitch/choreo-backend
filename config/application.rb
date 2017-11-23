@@ -30,8 +30,10 @@ module ChoreoBackend
     # Middleware like session, flash, cookies can be added back manually.
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        origins '*' # CHANGE TO localhost:3001 
+        resource '*', 
+        :headers => :any, 
+        :methods => [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
     # Skip views, helpers and assets when generating a new resource.

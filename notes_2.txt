@@ -1,0 +1,32 @@
+USER STORIES: 
+
+  As a choreographer, I want a way to easily visualize movements so that I can more effectively create choreography.
+
+  As a choreographer, I want a way to store movements, sketches, and full choreographies so that I can access them later and remember them. 
+
+  As a dancer, I want a way to break down choreographies into their basic movements so that I can learn choreography quicker and easier.
+
+  As a dancer, I want a way to take a dance video, and represent the choreography in a simpler way so that I can learn it.  
+
+COMPONENT STRUCTURE: 
+  
+  <Provider>
+    <Router>
+      <App>
+        <Route ->  />
+        <Route ->  />
+      </App> 
+    </Router>
+  </Provider> 
+
+TECHNOLOGIES USED: 
+  React
+  ??Redux??
+  Konva 
+  
+STATE: 
+  {
+    currentUser: 1,
+    choreographies: [{}, {}, {}],
+    
+  }
