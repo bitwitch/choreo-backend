@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :friends, class_name: 'User', through: :friendships, foreign_key: :friend_id
   has_many :choreographies
   has_many :likes 
-  has_many :comments  
+  has_many :comments
+
+  mount_uploader :photo, PhotoUploader
 end

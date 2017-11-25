@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :v1 do
     resources :users, only: [:create, :show, :index]
     resources :choreographies, only: [:create, :show, :index]
+    post '/login', to: 'sessions#create'
   end
  end 
 end

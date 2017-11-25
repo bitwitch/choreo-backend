@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123015644) do
+ActiveRecord::Schema.define(version: 20171125033339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20171123015644) do
   create_table "choreographies", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
+    t.text "poses_json"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,13 +45,6 @@ ActiveRecord::Schema.define(version: 20171123015644) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "poses", force: :cascade do |t|
-    t.integer "choreography_id"
-    t.text "konva_json"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -59,6 +53,7 @@ ActiveRecord::Schema.define(version: 20171123015644) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
 end
