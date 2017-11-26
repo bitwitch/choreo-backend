@@ -17,9 +17,7 @@ class ApplicationController < ActionController::API
 
       if decoded_token[0]["user_id"]
         @current_user ||= User.find(decoded_token[0]["user_id"])
-        render json: {info: @current_user}
       else
-        render json: {message: "Error: decoded token first element is not 'user_id'. From ApplicationController line 22"}
       end
     end
   end
