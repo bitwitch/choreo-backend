@@ -22,7 +22,7 @@ class Api::V1::ChoreographiesController < ApplicationController
   private 
 
   def choreography_params 
-    params.permit(:user_id, :poses_json)
-  end 
+    params.permit(:user_id, :name, :poses_json)
+  end
 
 end
