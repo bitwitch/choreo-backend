@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :index]
     resources :choreographies, only: [:create, :show, :index]
     post '/login', to: 'sessions#create'
+    get '/current_user', to: 'sessions#current_user'
   end
  end 
 end
