@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :authorized, only: [:create]
 
   def index 
     users = User.all
@@ -13,9 +14,9 @@ class Api::V1::UsersController < ApplicationController
   def create 
     user = User.new(user_params)
     if user.save
-      render json: user 
+      redirect_to api_v1_signup_url(username: params[:username], password: params[:password])
     else
-      render json: {message: "FUCKING EXPLOSION!"}
+      render json: {error: "Error: Invalid Sign Up information"}
     end
   end   
 

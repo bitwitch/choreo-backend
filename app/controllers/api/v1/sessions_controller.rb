@@ -1,5 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :signup]
 
   def show
     render json: {
@@ -15,6 +15,10 @@ class Api::V1::SessionsController < ApplicationController
     else 
       render json: {error: "no user currently logged in"}
     end 
+  end 
+
+  def signup 
+    create
   end 
 
   def create
