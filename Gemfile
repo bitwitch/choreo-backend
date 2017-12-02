@@ -7,6 +7,7 @@ end
 
 gem 'jwt'
 gem 'carrierwave'
+gem 'rest-client'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
