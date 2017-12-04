@@ -27,7 +27,11 @@ class Api::V1::UsersController < ApplicationController
 
   def wait_for_spotify
     if (@@access_token && @@refresh_token)
-      render json: {access_token: @@access_token, refresh_token: @@refresh_token}
+      a_token = @@access_token 
+      r_token = @@refresh_token 
+      @@access_token  = false 
+      @@refresh_token = false
+      render json: {access_token: a_token, refresh_token: r_token}
     else 
       render json: {tokens_received: false}
     end 
