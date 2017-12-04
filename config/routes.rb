@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/signup', to: 'sessions#signup'
     get '/auth/spotify/callback', to: 'users#spotify'
     get '/spotify/pending', to: 'users#wait_for_spotify'
+    get '/spotify/refresh', to: 'users#refresh'
   end
  end 
 end

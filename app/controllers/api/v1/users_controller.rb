@@ -48,7 +48,18 @@ class Api::V1::UsersController < ApplicationController
       @@refresh_token = json["refresh_token"]
       render json: {success: 'Successfully signed in! You may now close this tab.'}
     end 
+  end 
 
+  def refresh 
+    encoded_secrets = Base64.strict_encode64("d59d3b99ecf54e6b8fbff1da8c7f11c6:861625e443824414bc9e9a576d9689be")
+    response = RestClient.post("https://accounts.spotify.com/api/token", {grant_type: "refresh_token", refresh_token: params[:refresh_token]}, {Authorization: "Basic #{encoded_secrets}"})
+    json = JSON.parse(response.body)
+    if json["access_token"]
+      access_token = json["access_token"]
+      render json: {access_token: access_token}
+    else 
+      render json: {error: 'Error: Refresh token invalid or problem fetching new token from Spotify'}
+    end 
   end 
 
   private 
