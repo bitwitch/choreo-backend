@@ -1,8 +1,8 @@
 class Api::V1::ChoreographiesController < ApplicationController
   
   def index 
-    choreographies = Choreography.all 
-    render json: choreographies
+    choreographies = Choreography.all
+    render json: {choreographies: choreographies}
   end 
 
   def show
